@@ -1,6 +1,5 @@
 package com.ojuslabs.conf;
 
-
 /**
  * Specifies how a configuration item should be parsed.
  */
@@ -8,11 +7,11 @@ public final class ConfItem
 {
     // Name of the configuration item. This is always in a canonical format that
     // removes all spaces, and is in lower case.
-    String       _name;
+    private String       _name;
     // Data type of the configuration item, in string format.
-    ConfDataType _dtype;
+    private ConfDataType _dtype;
     // Default value of the configuration item; needs casting before use.
-    Object       _dvalue;
+    private Object       _dvalue;
 
     /**
      * Constructs a new configuration item with the given specification.
