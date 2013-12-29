@@ -63,9 +63,11 @@ public final class Configuration
                 if (line.startsWith("[")) {
                     int pos = line.indexOf(']');
                     section = StringUtils.squeezeFully(line.substring(1, pos),
-                            " -");
+                            " -").toLowerCase();
                     m = Maps.newHashMap();
                     _conf.put(section, m);
+                    // System.err.printf("-- Parsing section: `%s'.\n",
+                    // section);
                     continue;
                 }
 
@@ -78,6 +80,8 @@ public final class Configuration
                 String[] kv = line.split("=");
                 String k = StringUtils.squeezeFully(kv[0], " -").toLowerCase();
                 String v = kv[1].trim().toLowerCase();
+                // System.err.printf("-- Parsing key: `%s', value: `%s'.\n", k,
+                // v);
 
                 ConfItem ci = _confItems.get(k);
                 // If unknown parameter, we ignore it.

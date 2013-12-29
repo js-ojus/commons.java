@@ -24,7 +24,7 @@ public final class ConfItem
      *            Default value of the item.
      */
     public ConfItem(String name, ConfDataType dtype, Object dvalue) {
-        if (null == name || null == dtype || null == dvalue || name.equals("")
+        if (null == name || null == dtype || name.equals("")
                 || dtype.equals("")) {
             throw new IllegalArgumentException(
                     "All parameters have to be non-null and non-empty.");
