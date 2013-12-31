@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.ojuslabs.util.StringUtils;
 
@@ -26,8 +25,7 @@ public final class Configuration
     public Configuration(Map<String, ConfItem> confItems, String fileName)
             throws IOException {
         if (null == fileName || fileName.equals("")) {
-            throw new IllegalArgumentException(
-                    "Provide a non-empty configuration type.");
+            throw new IllegalArgumentException("Provide a non-empty configuration type.");
         }
 
         _confItems = confItems;
@@ -62,8 +60,8 @@ public final class Configuration
                 // New section header. We create a new map for the new section.
                 if (line.startsWith("[")) {
                     int pos = line.indexOf(']');
-                    section = StringUtils.squeezeFully(line.substring(1, pos),
-                            " -").toLowerCase();
+                    section = StringUtils.squeezeFully(line.substring(1, pos), " -")
+                            .toLowerCase();
                     m = Maps.newHashMap();
                     _conf.put(section, m);
                     // System.err.printf("-- Parsing section: `%s'.\n",
@@ -108,7 +106,10 @@ public final class Configuration
                         int pos2 = v.indexOf(')');
                         String[] vals = v.substring(pos1 + 1, pos2).split(",");
                         if (vals.length > 0) {
-                            m.put(k, ImmutableList.copyOf(vals));
+                            for (int i = 0; i < vals.length; i++) {
+                                vals[i] = vals[i].trim();
+                            }
+                            m.put(k, vals);
                         }
                         break;
                     default:
