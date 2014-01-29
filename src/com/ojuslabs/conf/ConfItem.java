@@ -15,17 +15,16 @@ public final class ConfItem
 
     /**
      * Constructs a new configuration item with the given specification.
-     * 
+     *
      * @param name
-     *            Canonical text name of the configuration item.
+     *         Canonical text name of the configuration item.
      * @param dtype
-     *            Data type of the item, expressed in string format.
+     *         Data type of the item, expressed in string format.
      * @param dvalue
-     *            Default value of the item.
+     *         Default value of the item.
      */
     public ConfItem(String name, ConfDataType dtype, Object dvalue) {
-        if (null == name || null == dtype || name.equals("")
-                || dtype.equals("")) {
+        if (null == name || null == dtype || name.equals("") || dtype.equals("")) {
             throw new IllegalArgumentException(
                     "All parameters have to be non-null and non-empty.");
         }

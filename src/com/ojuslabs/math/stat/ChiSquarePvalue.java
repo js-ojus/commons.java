@@ -1,8 +1,8 @@
 package com.ojuslabs.math.stat;
 
 /**
- * Used to answer the computed chi-square and p-value, together with a flag that
- * indicates high reliability ({@code true}) or low ({@code false}).
+ * Used to answer the computed chi-square and p-value, together with a flag that indicates
+ * high reliability ({@code true}) or low ({@code false}).
  */
 public final class ChiSquarePvalue
 {

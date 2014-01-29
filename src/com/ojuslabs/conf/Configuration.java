@@ -19,11 +19,11 @@ public final class Configuration
 
     /**
      * @param fileName
-     *            The configuration type for which this is being instantiated.
+     *         The configuration type for which this is being instantiated.
      * @throws IOException
      */
-    public Configuration(Map<String, ConfItem> confItems, String fileName)
-            throws IOException {
+    public Configuration(Map<String, ConfItem> confItems,
+                         String fileName) throws IOException {
         if (null == fileName || fileName.equals("")) {
             throw new IllegalArgumentException("Provide a non-empty configuration type.");
         }
@@ -36,9 +36,8 @@ public final class Configuration
     }
 
     /**
-     * Parses the given configuration file, and sets the obtained values in the
-     * maps.
-     * 
+     * Parses the given configuration file, and sets the obtained values in the maps.
+     *
      * @throws IOException
      */
     void parseConf() throws IOException {
@@ -61,7 +60,7 @@ public final class Configuration
                 if (line.startsWith("[")) {
                     int pos = line.indexOf(']');
                     section = StringUtils.squeezeFully(line.substring(1, pos), " -")
-                            .toLowerCase();
+                                         .toLowerCase();
                     m = Maps.newHashMap();
                     _conf.put(section, m);
                     // System.err.printf("-- Parsing section: `%s'.\n",
@@ -125,13 +124,12 @@ public final class Configuration
     }
 
     /**
-     * Answers the configuration section corresponding to the given section
-     * name.
-     * 
+     * Answers the configuration section corresponding to the given section name.
+     *
      * @param sec
-     *            Name of the section desired.
-     * @return The corresponding section in this configuration, if found;
-     *         {@code null} otherwise.
+     *         Name of the section desired.
+     * @return The corresponding section in this configuration, if found; {@code null}
+     * otherwise.
      */
     public Map<String, Object> section(String sec) {
         return _conf.get(sec);
@@ -139,13 +137,13 @@ public final class Configuration
 
     /**
      * Answers the given configuration item within the given section.
-     * 
+     *
      * @param sec
-     *            Name of the section desired.
+     *         Name of the section desired.
      * @param key
-     *            Name of the configuration parameter whose value is desired.
-     * @return Value of the given parameter in the given section, if found;
-     *         {@code null} otherwise.
+     *         Name of the configuration parameter whose value is desired.
+     * @return Value of the given parameter in the given section, if found; {@code null}
+     * otherwise.
      */
     public Object value(String sec, String key) {
         Map<String, Object> m = _conf.get(sec);
@@ -157,16 +155,15 @@ public final class Configuration
     }
 
     /**
-     * Answers the given configuration item within the given section if found.
-     * Otherwise, it answers the default value pre-configured for the parameter.
-     * 
+     * Answers the given configuration item within the given section if found. Otherwise,
+     * it answers the default value pre-configured for the parameter.
+     *
      * @param sec
-     *            Name of the section desired.
+     *         Name of the section desired.
      * @param key
-     *            Name of the configuration parameter whose value is desired.
-     * @return Value of the given parameter in the given section, if found;
-     *         else, the default value of the parameter, if found; {@code null}
-     *         otherwise.
+     *         Name of the configuration parameter whose value is desired.
+     * @return Value of the given parameter in the given section, if found; else, the
+     * default value of the parameter, if found; {@code null} otherwise.
      */
     public Object valueOrDefault(String sec, String key) {
         Map<String, Object> m = _conf.get(sec);

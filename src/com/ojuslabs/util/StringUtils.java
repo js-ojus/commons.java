@@ -13,14 +13,13 @@ public final class StringUtils
     }
 
     /**
-     * Removes all occurrences of all characters in the specified pattern from
-     * the given string.
-     * 
+     * Removes all occurrences of all characters in the specified pattern from the given
+     * string.
+     *
      * @param src
-     *            The string to squeeze.
+     *         The string to squeeze.
      * @param pattern
-     *            Each character in this string is squeezed out of the given
-     *            string.
+     *         Each character in this string is squeezed out of the given string.
      * @return The squeezed string.
      */
     public static String squeezeFully(String src, String pattern) {
@@ -32,14 +31,14 @@ public final class StringUtils
     }
 
     /**
-     * Removes all but one consecutive occurrences of all characters in the
-     * specified pattern from the given string.
-     * 
+     * Removes all but one consecutive occurrences of all characters in the specified
+     * pattern from the given string.
+     *
      * @param src
-     *            The string to squeeze.
+     *         The string to squeeze.
      * @param pattern
-     *            Each character in this string is squeezed to one occurrence in
-     *            the given string.
+     *         Each character in this string is squeezed to one occurrence in the given
+     *         string.
      * @return The squeezed string.
      */
     public static String squeeze(String src, String pattern) {
