@@ -6,8 +6,8 @@ package com.ojuslabs.math.stat;
  */
 public final class ChiSquarePvalue
 {
-    public final double  chiSquare;
-    public final double  pValue;
+    public final double chiSquare;
+    public final double pValue;
     public final boolean reliable;
 
     public ChiSquarePvalue(double chiSq, double pv, boolean rel) {

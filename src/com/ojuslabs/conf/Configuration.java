@@ -13,8 +13,8 @@ import com.ojuslabs.util.StringUtils;
  */
 public final class Configuration
 {
-    private final Map<String, ConfItem>            _confItems;
-    private final String                           _fileName;
+    private final Map<String, ConfItem> _confItems;
+    private final String _fileName;
     private final Map<String, Map<String, Object>> _conf;
 
     /**
@@ -115,8 +115,7 @@ public final class Configuration
                         m.put(k, v);
                 }
             }
-        }
-        finally {
+        } finally {
             if (null != r) {
                 r.close();
             }
